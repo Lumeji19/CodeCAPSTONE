@@ -1,0 +1,10 @@
+,Standard,Stable,Balanced
+Output stability,0.00354 (2.62),0.00204 (1.85),\textbf{0.00198} (\textbf{1.52})
+Structural stability,0.552 (2.40),0.577 (2.08),\textbf{0.485} (\textbf{1.52})
+Hyperparameter stability,21.3 (1.95),\textbf{19.3} (\textbf{1.82}),23.9 (2.23)
+Hyperparameter frequency,0.522 (2.08),\textbf{0.566} (\textbf{1.90}),0.544 (2.02)
+Accuracy,\textbf{0.959} (1.93),0.956 (\textbf{1.88}),0.954 (2.20)
+Accuracy worst,0.943 (1.98),0.943 (2.11),\textbf{0.944} (\textbf{1.91})
+AUC,0.857 (2.19),\textbf{0.861} (\textbf{1.86}),0.854 (1.95)
+AUC worst,0.769 (2.17),0.785 (\textbf{1.82}),\textbf{0.793} (2.00)
+k stability,— (—),\textbf{1.03} (\textbf{1.25}),1.06 (1.75)

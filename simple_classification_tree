@@ -1,0 +1,15 @@
+digraph {
+	A [label="Study hours > 40?" shape=box]
+	B [label="Attendance > 80%?" shape=box]
+	C [label="Homework completed?" shape=box]
+	D [label="Student passes" shape=box]
+	E [label="Student fails" shape=box]
+	F [label="Student passes" shape=box]
+	G [label="Student fails" shape=box]
+	A -> B [label=Yes]
+	A -> C [label=No]
+	B -> D [label=Yes]
+	B -> E [label=No]
+	C -> F [label=Yes]
+	C -> G [label=No]
+}

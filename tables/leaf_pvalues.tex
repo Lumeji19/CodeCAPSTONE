@@ -1,0 +1,56 @@
+\begin{table}
+\caption{Per-leaf Wilcoxon signed-rank p-values for balanced vs standard and balanced vs stable, across all trees. Each leaf is tested on the metric the tree was built around (column 'Tested metric'). One-sided alternative: balanced is better. Small p indicates statistically significant improvement.}
+\label{tab:leaf-pvalues}
+\begin{tabular}{llllllll}
+\toprule
+Model & Tree & Leaf & n & Prescription & Tested metric & p vs standard & p vs stable \\
+\midrule
+lr & 3class\_equal & 1 & 18 & stable & avg\_rank\_equal & 0.021 & 0.951 \\
+lr & 3class\_equal & 2 & 22 & balanced & avg\_rank\_equal & 0.039 & 0.161 \\
+lr & 3class\_stability & 1 & 13 & stable & avg\_rank\_stability & 0.073 & 0.989 \\
+lr & 3class\_stability & 2 & 27 & balanced & avg\_rank\_stability & 5.9e-05 & 0.077 \\
+lr & binary\_equal & 2 & 8 & other & avg\_rank\_equal & 0.496 & 0.984 \\
+lr & binary\_equal & 3 & 8 & other & avg\_rank\_equal & 0.133 & 0.891 \\
+lr & binary\_equal & 5 & 13 & balanced & avg\_rank\_equal & 0.007 & 0.011 \\
+lr & binary\_equal & 6 & 11 & other & avg\_rank\_equal & 0.027 & 0.873 \\
+lr & binary\_stability & 1 & 13 & other & avg\_rank\_stability & 0.073 & 0.989 \\
+lr & binary\_stability & 2 & 27 & balanced & avg\_rank\_stability & 5.9e-05 & 0.077 \\
+lr & metric\_output\_stab & 2 & 3 & stable & output\_stability & 0.750 & 0.875 \\
+lr & metric\_output\_stab & 3 & 3 & stable & output\_stability & 0.250 & 1.000 \\
+lr & metric\_output\_stab & 5 & 16 & balanced & output\_stability & 1.5e-05 & 1.5e-05 \\
+lr & metric\_output\_stab & 7 & 5 & balanced & output\_stability & 0.031 & 0.031 \\
+lr & metric\_output\_stab & 8 & 13 & stable & output\_stability & 0.009 & 0.249 \\
+lr & metric\_structural & 2 & 10 & balanced & structural\_total & 9.8e-04 & 0.014 \\
+lr & metric\_structural & 3 & 14 & stable & structural\_total & 0.015 & 0.993 \\
+lr & metric\_structural & 4 & 16 & balanced & structural\_total & 1.5e-05 & 1.5e-05 \\
+lr & metric\_auc\_worst & 1 & 32 & standard & auc\_worst & 0.960 & 0.800 \\
+lr & metric\_auc\_worst & 2 & 8 & standard & auc\_worst & -- & -- \\
+lr & metric\_accuracy\_worst & 2 & 21 & standard & accuracy\_worst & 0.857 & -- \\
+lr & metric\_accuracy\_worst & 3 & 13 & standard & accuracy\_worst & 0.078 & 0.375 \\
+lr & metric\_accuracy\_worst & 5 & 3 & stable & accuracy\_worst & 0.125 & -- \\
+lr & metric\_accuracy\_worst & 6 & 3 & balanced & accuracy\_worst & 0.125 & 0.250 \\
+svm & 3class\_equal & 2 & 33 & stable & avg\_rank\_equal & 0.011 & 0.726 \\
+svm & 3class\_equal & 3 & 3 & standard & avg\_rank\_equal & 1.000 & 1.000 \\
+svm & 3class\_equal & 4 & 4 & balanced & avg\_rank\_equal & 0.062 & 0.062 \\
+svm & 3class\_stability & 1 & 36 & stable & avg\_rank\_stability & 0.012 & 0.650 \\
+svm & 3class\_stability & 2 & 4 & balanced & avg\_rank\_stability & 0.062 & 0.062 \\
+svm & binary\_equal & 2 & 27 & other & avg\_rank\_equal & 0.009 & 0.441 \\
+svm & binary\_equal & 3 & 9 & other & avg\_rank\_equal & 0.959 & 0.988 \\
+svm & binary\_equal & 4 & 4 & balanced & avg\_rank\_equal & 0.062 & 0.062 \\
+svm & binary\_stability & 1 & 13 & balanced & avg\_rank\_stability & 1.2e-04 & 0.023 \\
+svm & binary\_stability & 2 & 27 & other & avg\_rank\_stability & 0.126 & 0.831 \\
+svm & metric\_output\_stab & 1 & 16 & balanced & output\_stability & 3.1e-05 & 1.5e-05 \\
+svm & metric\_output\_stab & 2 & 24 & stable & output\_stability & 0.001 & 0.594 \\
+svm & metric\_structural & 2 & 27 & balanced & structural\_total & 3.7e-08 & 2.4e-05 \\
+svm & metric\_structural & 3 & 5 & standard & structural\_total & 0.938 & 0.688 \\
+svm & metric\_structural & 5 & 5 & standard & structural\_total & 0.844 & 0.781 \\
+svm & metric\_structural & 6 & 3 & stable & structural\_total & 0.125 & 1.000 \\
+svm & metric\_auc\_worst & 3 & 14 & standard & auc\_worst & 0.861 & 0.861 \\
+svm & metric\_auc\_worst & 4 & 11 & balanced & auc\_worst & 0.007 & 0.019 \\
+svm & metric\_auc\_worst & 5 & 8 & stable & auc\_worst & 0.125 & 0.688 \\
+svm & metric\_auc\_worst & 6 & 7 & standard & auc\_worst & -- & -- \\
+svm & metric\_accuracy\_worst & 1 & 36 & standard & accuracy\_worst & 0.603 & 0.458 \\
+svm & metric\_accuracy\_worst & 2 & 4 & balanced & accuracy\_worst & 0.062 & 0.062 \\
+\bottomrule
+\end{tabular}
+\end{table}
