@@ -50,7 +50,7 @@ def hyperparameter_stability(params_list: List[Dict[str, Any]]) -> Dict[str, flo
     return result
 
 
-def performance_summary(test_acc: np.ndarray, test_auc: np.ndarray) -> Dict[str, float]:
+def performance_summary(test_acc: np.ndarray, test_auc: np.ndarray, test_auprc: np.ndarray) -> Dict[str, float]:
     """
     Mean and std of test accuracy and AUC.
     """
@@ -61,6 +61,9 @@ def performance_summary(test_acc: np.ndarray, test_auc: np.ndarray) -> Dict[str,
         "auc_mean": float(test_auc.mean()),
         "auc_std": float(test_auc.std(ddof=1)),
         "auc_worst": float(test_auc.min()),
+        "auprc_mean": float(test_auprc.mean()),
+        "auprc_std": float(test_auprc.std(ddof=1)),
+        "auprc_worst": float(test_auprc.min()),
 
     }
 
@@ -99,6 +102,7 @@ def compute_all_metrics(method_results: Dict[str, Any]) -> Dict[str, Any]:
     perf = performance_summary(
         test_acc=method_results["test_acc"],
         test_auc=method_results["test_auc"],
+        test_auprc=method_results["test_auprc"],
     )
     metrics.update(perf)
 

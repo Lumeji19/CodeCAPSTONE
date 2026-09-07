@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH --job-name=test_one
+#SBATCH --cpus-per-task=2
+#SBATCH --mem=8GB
+#SBATCH --time=01:00:00
+#SBATCH --output=slurm_%j.out
+#SBATCH --error=slurm_%j.err
+
+source /home/jr7570/capstone-venv/bin/activate
+cd /home/jr7570/CodeCAPSTONE
+python scripts/run_pilot_LR.py yeast6

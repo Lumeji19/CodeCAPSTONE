@@ -156,31 +156,30 @@ def print_dataset_summary(df: pd.DataFrame) -> None:
     print(summary.to_string(index=False))
 
 def main():
+    single_dataset = sys.argv[1] if len(sys.argv) > 1 else None
+    datasets_to_run = [single_dataset] if single_dataset else PILOT_DATASETS
+
     all_results = []
-    for dataset_name in PILOT_DATASETS:
+    for dataset_name in datasets_to_run:
         df = run_one_dataset(dataset_name)
         all_results.append(df)
 
+    # Only build the combined file when running the full batch locally.
+    # (See explanation below — combining happens separately after an array run.)
+    if single_dataset is None:
+        combined = pd.concat(all_results, ignore_index=True)
+        combined_path = RESULTS_DIR / f"pilot_{SCHEME}_combined.csv"
+        combined.to_csv(combined_path, index=False)
 
-    combined = pd.concat(all_results, ignore_index=True)
-    combined_path = RESULTS_DIR / f"pilot_svm_{SCHEME}_combined.csv"
-    combined.to_csv(combined_path, index=False)
+        numeric_cols = combined.select_dtypes(include="number").columns.tolist()
+        mean_rows = combined.groupby("method")[numeric_cols].mean().reset_index()
+        mean_rows["dataset"] = "MEAN"
+        column_order = ["dataset"] + [c for c in combined.columns if c != "dataset"]
+        mean_rows = mean_rows.reindex(columns=column_order)
 
-    numeric_cols = combined.select_dtypes(include="number").columns.tolist()
-    mean_rows = combined.groupby("method")[numeric_cols].mean().reset_index()
-    mean_rows["dataset"] = "MEAN"  
+        final_combined = pd.concat([combined, mean_rows], ignore_index=True)
+        final_combined.to_csv(combined_path, index=False)
+        print(f"Combined results: {combined_path}")
 
-    column_order = ["dataset"] + [c for c in combined.columns if c != "dataset"]
-    mean_rows = mean_rows.reindex(columns=column_order)
-
-
-    final_combined = pd.concat([combined, mean_rows], ignore_index=True)
-    final_combined.to_csv(combined_path, index=False)
-
-
-    print(f"Pilot complete. Combined results: {combined_path}")
-
-
-
-if __name__ == "__main__":
-    main()
+    if __name__ == "__main__":
+        main()

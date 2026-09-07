@@ -3,7 +3,7 @@ from itertools import product
 from typing import Any, Dict, List, Tuple
 
 import numpy as np
-from sklearn.metrics import accuracy_score, roc_auc_score
+from sklearn.metrics import accuracy_score, roc_auc_score, average_precision_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import time 
@@ -132,6 +132,7 @@ def run_bootstrap_experiment(
             "params": [],
             "test_acc": [],
             "test_auc": [],
+            "test_auprc": [],
             "val_auc": [],
             "fit_times": [],
         }
@@ -159,6 +160,7 @@ def run_bootstrap_experiment(
             preds = (probs >= 0.5).astype(int)
             test_acc = accuracy_score(y_test, preds)
             test_auc = roc_auc_score(y_test, probs)
+            test_auprc = average_precision_score(y_test, probs)
 
             structure = model.get_structure()
             results[name]["probs"].append(probs)
@@ -168,6 +170,7 @@ def run_bootstrap_experiment(
             results[name]["params"].append(best_params)
             results[name]["test_acc"].append(test_acc)
             results[name]["test_auc"].append(test_auc)
+            results[name]["test_auprc"].append(test_auprc)
             results[name]["val_auc"].append(val_auc)
             results[name]["fit_times"].append(fit_time)
 
@@ -179,6 +182,7 @@ def run_bootstrap_experiment(
         results[name]["preds"] = np.array(results[name]["preds"])
         results[name]["test_acc"] = np.array(results[name]["test_acc"])
         results[name]["test_auc"] = np.array(results[name]["test_auc"])
+        results[name]["test_auprc"] = np.array(results[name]["test_auprc"])
         results[name]["val_auc"] = np.array(results[name]["val_auc"])
         results[name]["fit_times"] = np.array(results[name]["fit_times"])
 
