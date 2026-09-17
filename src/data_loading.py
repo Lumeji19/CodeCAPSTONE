@@ -315,6 +315,78 @@ DATASETS: Dict[str, Dict[str, Any]] = {
         "target_col": "Class",
         "source": "KEEL",
     },
+#new datasets from UCI
+    "breast_cancer": {
+        "path": RAW_UCI / "breast_cancer" / "breast_cancer.csv",
+        "sep": ",",
+        "target_col": "Class",
+        "source": "UCI",
+        "header": 0,
+    },
+    "breast_cancer_wisconsin_prognostic": {
+        "path": RAW_UCI / "breast_cancer_wisconsin_prognostic" / "breast_cancer_wisconsin_prognostic.csv",
+        "sep": ",",
+        "target_col": "Outcome",
+        "source": "UCI",
+        "header": 0,
+    },
+    "habermans_survival": {
+        "path": RAW_UCI / "habermans_survival" / "habermans_survival.csv",
+        "sep": ",",
+        "target_col": "survival_status",
+        "source": "UCI",
+        "header": 0,
+    },
+    "spect_heart": {
+        "path": RAW_UCI / "spect_heart" / "spect_heart.csv",
+        "sep": ",",
+        "target_col": "OVERALL_DIAGNOSIS",
+        "source": "UCI",
+        "header": 0,
+    },
+    "spectf_heart": {
+        "path": RAW_UCI / "spectf_heart" / "spectf_heart.csv",
+        "sep": ",",
+        "target_col": "diagnosis",
+        "source": "UCI",
+        "header": 0,
+    },
+    "ilpd_indian_liver": {
+        "path": RAW_UCI / "ilpd_indian_liver" / "ilpd_indian_liver.csv",
+        "sep": ",",
+        "target_col": "Selector",
+        "source": "UCI",
+        "header": 0,
+    },
+    "default_credit_card": {
+        "path": RAW_UCI / "default_credit_card" / "default_credit_card.csv",
+        "sep": ",",
+        "target_col": "Y",
+        "source": "UCI",
+        "header": 0,
+    },
+    "iranian_churn": {
+        "path": RAW_UCI / "iranian_churn" / "iranian_churn.csv",
+        "sep": ",",
+        "target_col": "Churn",
+        "source": "UCI",
+        "header": 0,
+    },
+    "taiwanese_bankruptcy": {
+        "path": RAW_UCI / "taiwanese_bankruptcy" / "taiwanese_bankruptcy.csv",
+        "sep": ",",
+        "target_col": "Bankrupt?",
+        "source": "UCI",
+        "header": 0,
+        
+    },
+    "cdc_diabetes": {
+        "path": RAW_UCI / "cdc_diabetes" / "cdc_diabetes.csv",
+        "sep": ",",
+        "target_col": "Diabetes_binary",
+        "source": "UCI",
+        "header": 0,
+    },
 }
 
 
